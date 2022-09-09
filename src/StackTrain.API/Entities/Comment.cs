@@ -12,6 +12,12 @@ namespace StackTrain.API.Entities
         public string Message { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        public Question Question { get; set; }
+        public Guid QuestionId { get; set; }
+
+        public Answer Answer { get; set; }
+        public Guid AnswerId { get; set; }
+
 
     }
 }

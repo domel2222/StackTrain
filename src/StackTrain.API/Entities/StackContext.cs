@@ -32,6 +32,7 @@ namespace StackTrain.API.Entities
                         .WithOne(x => x.Answer)
                         .HasForeignKey<Rate>(x => x.AnswerId);
             });
+
         }
 
     }
