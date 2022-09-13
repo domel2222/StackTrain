@@ -13,7 +13,7 @@ namespace StackTrain.API.Entities.Configuration
         public void Configure(EntityTypeBuilder<Question> eb)
         {
             eb.Property(x => x.Subject).HasColumnType("nvarchar(200)");
-            eb.Property(x => x.Message).HasColumnType("nvarchar(5000)");
+            eb.Property(x => x.Message).HasColumnType("nvarchar(3000)");
 
             eb.HasMany(a => a.Answers)
                 .WithOne(x => x.Question)

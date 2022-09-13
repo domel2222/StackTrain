@@ -24,16 +24,7 @@ namespace StackTrain.API.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Answer>(eb =>
-            {
-                eb.Property(x => x.Message).HasColumnType("nvarchar(5000)");
-
-                eb.HasOne(x => x.Rate)
-                        .WithOne(x => x.Answer)
-                        .HasForeignKey<Rate>(x => x.AnswerId);
-            });
-
+            modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
         }
-
     }
 }

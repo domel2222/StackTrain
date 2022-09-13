@@ -12,7 +12,7 @@ namespace StackTrain.API.Entities.Configuration
     {
         public void Configure(EntityTypeBuilder<Answer> eb)
         {
-            eb.Property(x => x.Message).HasColumnType("nvarchar(5000)");
+            eb.Property(x => x.Message).HasColumnType("nvarchar(3000)");
 
             eb.HasOne(x => x.Rate)
                     .WithOne(x => x.Answer)
@@ -20,7 +20,9 @@ namespace StackTrain.API.Entities.Configuration
 
             eb.HasMany(x => x.Comments)
                 .WithOne(c => c.Answer)
-                .HasForeignKey(c => c.AnswerId);
+                .HasForeignKey(c => c.AnswerId)
+                .OnDelete(DeleteBehavior.ClientCascade);
+                
         }
     }
 }

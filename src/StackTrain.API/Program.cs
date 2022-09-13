@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Http.Json;
+using Microsoft.EntityFrameworkCore;
+using StackTrain.API.Entities;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +16,10 @@ builder.Services.Configure<JsonOptions>(option =>
     option.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
-
+builder.Services.AddDbContext<StackContext>(
+    option =>
+        option.UseSqlServer(builder.Configuration.GetConnectionString("StackTrain"))
+    );
 
 var app = builder.Build();
 

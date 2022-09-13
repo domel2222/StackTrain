@@ -12,7 +12,7 @@ namespace StackTrain.API.Entities.Configuration
     {
         public void Configure(EntityTypeBuilder<Comment> eb)
         {
-            eb.Property(x => x.Message).HasColumnType("nvarchar(5000)");
+            eb.Property(x => x.Message).HasColumnType("nvarchar(3000)");
         }
     }
 }
